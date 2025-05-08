@@ -25,7 +25,7 @@ public partial class OpenAISamples
     public static async Task TextEmbedding()
     {
         _configuration = new ConfigurationManager();
-        _configuration.AddUserSecrets<OpenAISamples>(); // Add UserSecrets
+        _configuration.AddUserSecrets<OpenAISamples>();
         var openAiClient = CreateOpenAiClient();
         var chatClient = openAiClient.AsChatClient("gpt-4o-mini");
         var generator = openAiClient.GetEmbeddingClient("text-embedding-3-small").AsEmbeddingGenerator();
