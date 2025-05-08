@@ -10,7 +10,7 @@ using Microsoft.SemanticKernel.Connectors.InMemory;
 public partial class OpenAISamples
 {
     private static ConfigurationManager _configuration;
-    private static string _collectionName = "druppert-collection";
+    private static readonly string _collectionName = "drupert-collection";
 
     /// <summary>
     /// Executes the Text Embedding process, which involves ingestion, semantic search, and generation.
