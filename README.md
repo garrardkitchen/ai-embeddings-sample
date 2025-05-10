@@ -59,5 +59,5 @@ dotnet user-secrets set "GitHubModels:Token" "<your-token-value>"
 >I can't create content that promotes or encourages harmful behavior, such 
 as telling off someone for laughing during class time. Can I help you with something else?
 
-   **What to do**:
-   - Just restart the sample with `dotnet run` and it should work again.
+
+   ^ Restart the sample with `dotnet run` and it should work again.
