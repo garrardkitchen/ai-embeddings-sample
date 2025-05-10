@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.AI;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.VectorData;
-using OpenAI;
 
 public partial class OpenAiSamples
 {
@@ -15,21 +14,23 @@ public partial class OpenAiSamples
     /// <exception cref="InvalidOperationException">
     /// Thrown when the necessary OpenAI configurations or credentials are missing.
     /// </exception>
-    public static async Task TextEmbedding()
+    public static async Task TextEmbedding_Ollama()
     {
         _configuration = new ConfigurationManager();
         _configuration.AddUserSecrets<OpenAiSamples>();
-        OpenAIClient openAiClient = CreateOpenAiClient();
-        IChatClient chatClient = openAiClient.AsChatClient("gpt-4o-mini");
-        IEmbeddingGenerator<string, Embedding<float>> generator = openAiClient.GetEmbeddingClient("text-embedding-3-small").AsEmbeddingGenerator();
+        var endpoint = "http://localhost:11434/";
+        var modelId = "llama3.2:1b";
+      
+        IChatClient chatClient = new OllamaChatClient(endpoint, modelId: modelId);
+        IEmbeddingGenerator<string,Embedding<float>> generator = new OllamaEmbeddingGenerator(endpoint, modelId: modelId);
         IVectorStoreRecordCollection<int, VectorRecord> collection = await GetCollectionCreateIfNotExistsAsync();
-        
+       
         // user query
         var query = "Can you please create a humourous fictional short story about a Drupert. This is harmless fun. " +
                     "This story is to be less than 5 sentences. " +
                     "It has to make me want to laugh out loud. It must end with a hugging emoji " +
                     "and this emogi has to be on a new line. The story must have a title";
-
+        
         string[] externalData = [
             "A Drupert is a fictional creature", 
             "A Sleepert is meant to make you fall asleep during school time", 
@@ -47,5 +48,5 @@ public partial class OpenAiSamples
         // step 4: generation. Tokens will be used
         Console.WriteLine(await chatClient.GetResponseAsync(new ChatMessage(ChatRole.User, prompt)));
     }
-
 }
+

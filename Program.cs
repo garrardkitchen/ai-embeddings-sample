@@ -26,6 +26,7 @@ while (true)
                         .MoreChoicesText("[grey](Move up and down to reveal more choices)[/]")
                         .AddChoices([
                             "Text Embedding",
+                            "Text Embedding Ollama",
                         ])
                 );
 
@@ -33,8 +34,10 @@ while (true)
         // Execute the selected sample
         await (selectedSample switch
         {
-            "Text Embedding" => OpenAISamples.TextEmbedding(),
+            "Text Embedding" => OpenAiSamples.TextEmbedding(),
+            "Text Embedding Ollama" => OpenAiSamples.TextEmbedding_Ollama(),
             _ => Task.CompletedTask,
+            
         });
     }
 }

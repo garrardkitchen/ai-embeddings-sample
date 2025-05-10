@@ -12,6 +12,8 @@ This project contains a set of samples that show how to use the OpenAI reference
 
 1. Create user secret:
 
+Your PAT requires no scope to run this example and this is only required for the Non Ollama models.
+
 ```bash
 dotnet user-secrets set "GitHubModels:Token" "<your-token-value>"
 ```
@@ -40,9 +42,10 @@ dotnet user-secrets set "GitHubModels:Token" "<your-token-value>"
 
 ## Examples
 
-| Example | Description |
-| --- | --- |
-| [Text Embedding](./TextEmbedding.cs) | Use text embedding generator |
+| Example                                     | Description                                         |
+|---------------------------------------------|-----------------------------------------------------|
+| [Text Embedding](./TextEmbedding.cs)        | Use text embedding generator                        |
+| [Text Embedding](./TextEmbedding_Ollama.cs) | Use text embedding generator using Ollama generator |
 
 ## References
 
