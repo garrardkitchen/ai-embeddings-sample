@@ -13,11 +13,11 @@ This project contains a set of samples that show how to use the OpenAI reference
 
 1. Create user secret:
 
-Your PAT requires no scope to run this example and this is only required for the Non Ollama models.
+   Your PAT requires no scope to run this example and this is only required for the Non Ollama models.
 
-```bash
-dotnet user-secrets set "GitHubModels:Token" "<your-token-value>"
-```
+   ```bash
+   dotnet user-secrets set "GitHubModels:Token" "<your-token-value>"
+   ```
 
 ## Quick Start
 
