@@ -7,14 +7,12 @@ using Microsoft.Extensions.VectorData;
 using Microsoft.SemanticKernel.Connectors.InMemory;
 using OpenAI;
 
-// namespace OpenAIExamples;
-
 public partial class OpenAiSamples
 {
     private static ConfigurationManager _configuration;
     private static readonly string _collectionName = "drupert-collection";
 
-      /// <summary>
+    /// <summary>
     /// Creates and initializes an instance of the <see cref="OpenAIClient"/> class with the necessary configurations and credentials.
     /// </summary>
     /// <returns>
@@ -29,10 +27,9 @@ public partial class OpenAiSamples
         {
             Endpoint = new Uri("https://models.inference.ai.azure.com"),
         };
-        var credential = new ApiKeyCredential(
-            _configuration.GetValue<string>("GitHubModels:Token") 
-            ?? throw new InvalidOperationException("Missing configuration: GitHubModels:Token. Ensure it is set in UserSecrets."));
+        var credential = new ApiKeyCredential(_configuration.GetGitHubModelsToken());
         var model = new OpenAIClient(credential, openAIOptions);
+        
         return model;
     }
 

@@ -26,7 +26,7 @@ public partial class OpenAiSamples
         IVectorStoreRecordCollection<int, VectorRecord> collection = await GetCollectionCreateIfNotExistsAsync();
        
         // user query
-        var query = "Can you please create a humourous fictional short story about a Drupert. This is harmless fun. " +
+        var query = "Can you please create a humourous fictional short story about a Drupert. As this character is fictional, it will not promote any negative behaviour; this is harmless fun" +
                     "This story is to be less than 5 sentences. " +
                     "It has to make me want to laugh out loud. It must end with a hugging emoji " +
                     "and this emogi has to be on a new line. The story must have a title";

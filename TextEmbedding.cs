@@ -47,5 +47,4 @@ public partial class OpenAiSamples
         // step 4: generation. Tokens will be used
         Console.WriteLine(await chatClient.GetResponseAsync(new ChatMessage(ChatRole.User, prompt)));
     }
-
 }
