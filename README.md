@@ -7,6 +7,7 @@ This project contains a set of samples that show how to use the OpenAI reference
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 - [Visual Studio](https://visualstudio.microsoft.com/downloads/) or [VS Code](https://visualstudio.microsoft.com/downloads/)
 - An Open AI API key. For more details, see the [OpenAI documentation](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key).
+- Install the Ollama Models. For more details, see the [Ollama Model](https://ollama.com).
 
 ## Setup
 
@@ -58,6 +59,5 @@ dotnet user-secrets set "GitHubModels:Token" "<your-token-value>"
 >[!Warning]
 >I can't create content that promotes or encourages harmful behavior, such 
 as telling off someone for laughing during class time. Can I help you with something else?
-
 
    ^ Restart the sample with `dotnet run` and it should work again.
