@@ -56,8 +56,7 @@ dotnet user-secrets set "GitHubModels:Token" "<your-token-value>"
 - You may only be able to run the Ollama embedding example once before it responds with this:
 
 >[!Warning]
->
-I can't create content that promotes or encourages harmful behavior, such 
+>I can't create content that promotes or encourages harmful behavior, such 
 as telling off someone for laughing during class time. Can I help you with something else?
 
    **What to do**:
