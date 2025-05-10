@@ -42,11 +42,23 @@ dotnet user-secrets set "GitHubModels:Token" "<your-token-value>"
 
 ## Examples
 
-| Example                                     | Description                                         |
-|---------------------------------------------|-----------------------------------------------------|
-| [Text Embedding](./TextEmbedding.cs)        | Use text embedding generator                        |
-| [Text Embedding](./TextEmbedding_Ollama.cs) | Use text embedding generator using Ollama generator |
+| Example                                            | Description                                         |
+|----------------------------------------------------|-----------------------------------------------------|
+| [Text Embedding](./TextEmbedding.cs)               | Use text embedding generator                        |
+| [Text Embedding Ollama](./TextEmbedding_Ollama.cs) | Use text embedding generator using Ollama generator |
 
 ## References
 
 - Based off of [dotnet/ai-samples](https://github.com/dotnet/ai-samples)
+
+## Known Issues
+
+- You may only be able to run the Ollama embedding example once before it responds with this:
+
+  >[!Warning]
+  > "
+   I can't create content that promotes or encourages harmful behavior, such 
+   as telling off someone for laughing during class time. Can I help you with something else?
+   "
+  > **Action**: 
+  > - Just restart the sample with `dotnet run` and it should work again.
