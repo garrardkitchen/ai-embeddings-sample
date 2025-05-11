@@ -15,4 +15,15 @@ public static class ConfigurationManagerExtensions
     {
         return configuration.GetValue<string>("GitHubModels:Token") ?? throw new InvalidOperationException("Missing configuration: GitHubModels:Token. Ensure it is set in UserSecrets.");
     }
+
+
+    public static string GetKozuchiToken(this ConfigurationManager configuration)
+    {
+        return configuration.GetValue<string>("kozuchi:Token") ?? throw new InvalidOperationException("Missing configuration: kozuchi:Token. Ensure it is set in UserSecrets.");
+    }
+     
+    public static string GetKozuchiEndpoint(this ConfigurationManager configuration)
+    {
+        return configuration.GetValue<string>("kozuchi:Endpoint") ?? throw new InvalidOperationException("Missing configuration: kozuchi:Endpoint. Ensure it is set in UserSecrets.");
+    }
 }

@@ -19,7 +19,7 @@ public partial class OpenAiSamples
         _configuration = new ConfigurationManager();
         _configuration.AddUserSecrets<OpenAiSamples>();
         var endpoint = "http://localhost:11434/";
-        var modelId = "llama3.2:1b";
+        var modelId = "llama3.2";
       
         IChatClient chatClient = new OllamaChatClient(endpoint, modelId: modelId);
         IEmbeddingGenerator<string,Embedding<float>> generator = new OllamaEmbeddingGenerator(endpoint, modelId: modelId);

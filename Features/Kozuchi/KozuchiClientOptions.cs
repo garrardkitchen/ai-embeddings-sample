@@ -1,0 +1,1 @@
+public record KozuchiClientOptions (string? model = null, int max_tokens = 0, double temperature = 0.5, int top_p = 1);

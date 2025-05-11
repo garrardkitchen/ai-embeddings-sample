@@ -65,9 +65,9 @@ public partial class OpenAiSamples
 
                          User question: {{{userQuery}}}
                          """;
-        Console.WriteLine();
-        Console.WriteLine(contents);
-        Console.WriteLine();
+        // Console.WriteLine();
+        // Console.WriteLine(contents);
+        // Console.WriteLine();
         return contents;
     }
 
@@ -133,7 +133,7 @@ public partial class OpenAiSamples
         var index = 0;
         foreach (var prompt in prompts)
         {
-            Console.WriteLine($"{index}: {prompt}");
+            // Console.WriteLine($"{index}: {prompt}");
             var embedding = await generator.GenerateEmbeddingVectorAsync(prompt);
             var record = new VectorRecord(index++, prompt, embedding);
             collection.UpsertAsync(record);

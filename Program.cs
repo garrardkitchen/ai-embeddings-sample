@@ -27,6 +27,7 @@ while (true)
                         .AddChoices([
                             "Text Embedding",
                             "Text Embedding Ollama",
+                            "Text Embedding Kozuchi"
                         ])
                 );
 
@@ -36,6 +37,7 @@ while (true)
         {
             "Text Embedding" => OpenAiSamples.TextEmbedding(),
             "Text Embedding Ollama" => OpenAiSamples.TextEmbedding_Ollama(),
+            "Text Embedding Kozuchi" => OpenAiSamples.TextEmbedding_Kozuchi(),
             _ => Task.CompletedTask,
             
         });

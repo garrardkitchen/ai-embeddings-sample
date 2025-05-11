@@ -1,0 +1,1 @@
+public record ChatRequest(string question, List<Message> messages, string? model = null, int max_tokens = 100, double temperature = 0.5, int top_p = 1);

@@ -8,16 +8,25 @@ This project contains a set of samples that show how to use the OpenAI reference
 - [Visual Studio](https://visualstudio.microsoft.com/downloads/) or [VS Code](https://visualstudio.microsoft.com/downloads/)
 - An Open AI API key. For more details, see the [OpenAI documentation](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key).
 - Install the Ollama Models. For more details, see the [Ollama Model](https://ollama.com).
+- For Kozuchi, you need to have signed up for API. The API expires after a month and you must be on company's VPN.
 
 ## Setup
 
-1. Create user secret:
+1. Create user secrets:
 
-   Your PAT requires no scope to run this example and this is only required for the Non Ollama models.
+   Your PAT requires no scope to run this example and this is only required for the Non Ollama models:
 
    ```bash
    dotnet user-secrets set "GitHubModels:Token" "<your-token-value>"
    ```
+
+   For Kozuchi:
+
+   ```bash
+   dotnet user-secrets set "Kozuchi:Token" "<your-api-value>"
+   dotnet user-secrets set "Kozuchi:Endpoint" "<endpoint>"   
+   ```
+
 
 ## Quick Start
 
@@ -43,10 +52,11 @@ This project contains a set of samples that show how to use the OpenAI reference
 
 ## Examples
 
-| Example                                            | Description                                         |
-|----------------------------------------------------|-----------------------------------------------------|
-| [Text Embedding](./TextEmbedding.cs)               | Use text embedding generator                        |
-| [Text Embedding Ollama](./TextEmbedding_Ollama.cs) | Use text embedding generator using Ollama generator |
+| Example                                              | Description                                         |
+|------------------------------------------------------|-----------------------------------------------------|
+| [Text Embedding](./TextEmbedding.cs)                 | Use text embedding generator                        |
+| [Text Embedding Ollama](./TextEmbedding_Ollama.cs)   | Use text embedding generator using Ollama generator |
+| [Text Embedding Kozuchi](./TextEmbedding_Kozuchi.cs) | Use text embedding generator using Ollama generator |
 
 ## References
 
