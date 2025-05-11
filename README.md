@@ -8,7 +8,7 @@ This project contains a set of samples that show how to use the OpenAI reference
 - [Visual Studio](https://visualstudio.microsoft.com/downloads/) or [VS Code](https://visualstudio.microsoft.com/downloads/)
 - An Open AI API key. For more details, see the [OpenAI documentation](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key).
 - Install the Ollama Models. For more details, see the [Ollama Model](https://ollama.com).
-- For Kozuchi, you need to have signed up for API. The API expires after a month and you must be on company's VPN.
+- For Kozuchi, you need to have signed up for the API. The API key expires after a month and you must be on company's VPN.
 
 ## Setup
 
