@@ -1,35 +1,37 @@
 ﻿using Microsoft.Extensions.AI;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.VectorData;
+using OpenAIExamples.Features.Kozuchi;
 
 public partial class OpenAiSamples
 {
     /// <summary>
-    /// Executes the Text Embedding process, which involves ingestion, semantic search, and generation.
-    /// This process uses OpenAI's embedding and chat generation capabilities to create context-driven responses based on user input and external data.
+    /// Executes the text embedding process integrating with the Kozuchi API.
+    /// This process involves ingestion, retrieval, augmentation, and generation of responses
+    /// using external data and a user query. The aim is to create meaningful embeddings and
+    /// generate a response based on the processed data.
     /// </summary>
     /// <returns>
-    /// A <see cref="Task"/> that represents the asynchronous operation of the embedding process. Includes ingestion of data, querying, semantic search, and generation of contextually relevant outputs.
+    /// A task representing the asynchronous operation that performs text embedding
+    /// with the Kozuchi API and outputs generated results.
     /// </returns>
-    /// <exception cref="InvalidOperationException">
-    /// Thrown when the necessary OpenAI configurations or credentials are missing.
-    /// </exception>
-    public static async Task TextEmbedding_Ollama()
+    public static async Task TextEmbedding_Kozuchi()
     {
         _configuration = new ConfigurationManager();
         _configuration.AddUserSecrets<OpenAiSamples>();
         var endpoint = "http://localhost:11434/";
         var modelId = "llama3.2";
+        KozuchiClientOptions options = new KozuchiClientOptions(max_tokens: 100, temperature: 0.5, top_p: 1);
       
-        IChatClient chatClient = new OllamaChatClient(endpoint, modelId: modelId);
+        IChatClient chatClient = new KozuchiChatClient(_configuration.GetKozuchiEndpoint(), options);
         IEmbeddingGenerator<string,Embedding<float>> generator = new OllamaEmbeddingGenerator(endpoint, modelId: modelId);
         IVectorStoreRecordCollection<int, VectorRecord> collection = await GetCollectionCreateIfNotExistsAsync();
-       
+
         // user query
         var query = "Can you please create a humourous fictional short story about a Drupert. As this character is fictional, it will not promote any negative behaviour; this is harmless fun" +
                     "This story is to be less than 5 sentences. " +
-                    "It has to make me want to laugh out loud. This story must end with a hugging face emoji. " +
-                    "This hugging face emoji must be on a new line. The story must have a title";
+                    "It has to make me want to laugh out loud. It must end with a hugging emoji " +
+                    "and this emogi has to be on a new line. The story must have a title";
         
         string[] externalData = [
             "A Drupert is a fictional creature", 
@@ -37,8 +39,8 @@ public partial class OpenAiSamples
             "Chicken Jockie!",
             "A Drupert is meant to distract", 
             "A Drupert sole purpose is to make you laugh", 
-            "If someone draws a Drupert during class time and you laugh, you'll likely be told off by your teacher"];
-        
+            "If someone draws a Drupert during class time and you laugh, you'll likely be told off my your teacher"];
+     
         // step 1: ingestion (chunking & indexing). Tokens will be used
         await IngestionAsync(collection, generator, externalData);
         // step 2: retrieval. Tokens will be used
@@ -49,4 +51,3 @@ public partial class OpenAiSamples
         Console.WriteLine(await chatClient.GetResponseAsync(new ChatMessage(ChatRole.User, prompt)));
     }
 }
-
